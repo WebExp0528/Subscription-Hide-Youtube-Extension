@@ -7026,12 +7026,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "./node_modules/@babel/runtime/helpers/slicedToArray.js");
 /* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/Grid/Grid.js");
-/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/Container/Container.js");
-/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/Switch/Switch.js");
-/* harmony import */ var _material_ui_system__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/system */ "./node_modules/@material-ui/system/esm/spacing.js");
-/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/styled.js");
-/* harmony import */ var utils_storage__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! utils/storage */ "./src/utils/storage.js");
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/Grid/Grid.js");
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/Container/Container.js");
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/Switch/Switch.js");
+/* harmony import */ var _material_ui_system__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/system */ "./node_modules/@material-ui/system/esm/spacing.js");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/styled.js");
+/* harmony import */ var utils_ext__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! utils/ext */ "./src/utils/ext.js");
+/* harmony import */ var utils_ext__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(utils_ext__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var utils_storage__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! utils/storage */ "./src/utils/storage.js");
 
 
 
@@ -7040,7 +7042,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var SpacedGrid = (0,_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_4__.default)(_material_ui_core__WEBPACK_IMPORTED_MODULE_5__.default)(_material_ui_system__WEBPACK_IMPORTED_MODULE_6__.default);
+var SpacedGrid = (0,_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_5__.default)(_material_ui_core__WEBPACK_IMPORTED_MODULE_6__.default)(_material_ui_system__WEBPACK_IMPORTED_MODULE_7__.default);
 var defaultStatus = false;
 var statusKey = "simpletube_status";
 var Popup = function Popup() {
@@ -7057,9 +7059,8 @@ var Popup = function Popup() {
   react__WEBPACK_IMPORTED_MODULE_2__.useEffect(function () {
     if (!isLoading) {
       setLoading(true);
-      utils_storage__WEBPACK_IMPORTED_MODULE_3__.default.get([statusKey], function (result) {
+      utils_storage__WEBPACK_IMPORTED_MODULE_4__.default.get([statusKey], function (result) {
         setLoading(false);
-        console.log("~~~~ get status", result);
 
         if (result === undefined) {
           return;
@@ -7074,38 +7075,37 @@ var Popup = function Popup() {
     if (!isLoading) {
       setLoading(true);
       var newStatus = event.target.checked;
-      utils_storage__WEBPACK_IMPORTED_MODULE_3__.default.set(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, statusKey, newStatus), function () {
-        console.log("~~~~ chagned status", newStatus);
+      utils_storage__WEBPACK_IMPORTED_MODULE_4__.default.set(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, statusKey, newStatus), function () {
         setStatus(newStatus);
         setLoading(false);
       });
     }
   };
 
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_7__.default, {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_8__.default, {
     style: {
-      minWidth: "360px"
+      minWidth: "300px"
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(SpacedGrid, {
     p: 3
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_5__.default, {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_6__.default, {
     component: "label",
     container: true,
     alignItems: "center",
     justify: "center",
     spacing: 1,
     direction: "row"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_5__.default, {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_6__.default, {
     item: true
-  }, "Off"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_5__.default, {
+  }, "Off"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_6__.default, {
     item: true
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_8__.default, {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_9__.default, {
     checked: status,
     onChange: handleChange,
     inputProps: {
       "aria-label": "secondary checkbox"
     }
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_5__.default, {
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_6__.default, {
     item: true
   }, "On"))));
 };

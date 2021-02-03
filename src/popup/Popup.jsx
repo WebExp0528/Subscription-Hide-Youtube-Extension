@@ -1,8 +1,8 @@
 import React from "react";
-import { withStyles } from "@material-ui/core/styles";
-import { Switch, Typography, Grid, Container } from "@material-ui/core";
-import { spacing, borders } from "@material-ui/system";
+import { Switch, Grid, Container } from "@material-ui/core";
+import { spacing } from "@material-ui/system";
 import { styled } from "@material-ui/core/styles";
+import ext from "utils/ext";
 
 import storage from "utils/storage";
 
@@ -20,7 +20,6 @@ export const Popup = () => {
             setLoading(true);
             storage.get([statusKey], (result) => {
                 setLoading(false);
-                console.log("~~~~ get status", result);
                 if (result === undefined) {
                     return;
                 }
@@ -34,7 +33,6 @@ export const Popup = () => {
             setLoading(true);
             const newStatus = event.target.checked;
             storage.set({ [statusKey]: newStatus }, () => {
-                console.log("~~~~ chagned status", newStatus);
                 setStatus(newStatus);
                 setLoading(false);
             });
@@ -42,7 +40,7 @@ export const Popup = () => {
     };
 
     return (
-        <Container style={{ minWidth: "360px" }}>
+        <Container style={{ minWidth: "300px" }}>
             <SpacedGrid p={3}>
                 <Grid
                     component="label"

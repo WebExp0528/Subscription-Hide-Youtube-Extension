@@ -1,1 +1,1 @@
-# SimpleTube Extension
+# SimpleTube

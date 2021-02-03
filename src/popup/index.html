@@ -5,11 +5,15 @@
     <title>
         <%= htmlWebpackPlugin.options.title %>
     </title>
+    <link rel="stylesheet" href="../assets/style.css" />
 </head>
 
 <body>
     <div id="app" class="popup-content">
-        <h1 class="app-name" style="text-align: center;">Simpletube Extension</h1>
+        <div class="header">
+            <img class="header-img" src="./../assets/img/SimpleTube Logo.svg">
+            <h1 class="header-str" style="text-align: center;">SimpleTube</h1>
+        </div>
         <div id="display-container"></div>
     </div>
 </body>

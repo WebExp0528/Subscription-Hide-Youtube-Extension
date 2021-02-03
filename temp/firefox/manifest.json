@@ -1,6 +1,6 @@
 {
     "name": "__MSG_appName__",
-    "version": "1.0.0",
+    "version": "0.0.0.1",
     "manifest_version": 2,
     "description": "__MSG_appDescription__",
     "icons": {
@@ -28,12 +28,12 @@
     "options_ui": {
         "page": "options/index.html"
     },
-    "page_action": {
+    "browser_action": {
         "default_icon": {
             "16": "assets/icons/icon-16.png",
             "48": "assets/icons/icon-48.png"
         },
-        "default_title": "SimpleTube Extension",
+        "default_title": "SimpleTube",
         "default_popup": "popup/index.html"
     }
 }

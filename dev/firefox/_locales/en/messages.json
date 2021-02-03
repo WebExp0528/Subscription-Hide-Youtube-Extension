@@ -1,14 +1,14 @@
 {
     "appName": {
-        "message": "SimpleTube Extension",
-        "description": "SimpleTube Extension"
+        "message": "SimpleTube",
+        "description": "SimpleTube"
     },
     "appDescription": {
-        "message": "SimpleTube Extension",
-        "description": "SimpleTube Extension"
+        "message": "SimpleTube",
+        "description": "SimpleTube"
     },
     "btnTooltip": {
-        "message": "SimpleTube Extension",
-        "description": "SimpleTube Extension"
+        "message": "SimpleTube",
+        "description": "SimpleTube"
     }
 }

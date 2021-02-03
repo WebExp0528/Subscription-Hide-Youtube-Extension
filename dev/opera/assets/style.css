@@ -1,0 +1,12 @@
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    color: #f34141;
+}
+
+.header-img {
+    width: 40px;
+    margin-right: 5px;
+}

@@ -69,13 +69,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "hideSubscriptions": () => (/* binding */ hideSubscriptions)
 /* harmony export */ });
+/* harmony import */ var utils_storage__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! utils/storage */ "./src/utils/storage.js");
 var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 
+
+var statusKey = "simpletube_status";
 var hideSubscriptions = function hideSubscriptions() {
-  $("div#secondary").attr("style", "display: none");
-  $("div#meta").attr("style", "display: none");
-  $("ytd-comments#comments").attr("style", "display: none");
-  $(".ytd-rich-grid-renderer").attr("style", "display: none");
+  utils_storage__WEBPACK_IMPORTED_MODULE_0__.default.get([statusKey], function (result) {
+    if (result === undefined) {
+      return;
+    }
+
+    if (result[statusKey]) {
+      $("div#secondary").attr("style", "display: none");
+      $("div#meta").attr("style", "display: none");
+      $("ytd-comments#comments").attr("style", "display: none");
+      $(".ytd-rich-grid-renderer").attr("style", "display: none");
+    }
+  });
 };
 
 /***/ }),
@@ -270,6 +281,24 @@ var sendMessage = /*#__PURE__*/function () {
   };
 }();
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (sendMessage);
+
+/***/ }),
+
+/***/ "./src/utils/storage.js":
+/*!******************************!*\
+  !*** ./src/utils/storage.js ***!
+  \******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _ext__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ext */ "./src/utils/ext.js");
+/* harmony import */ var _ext__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_ext__WEBPACK_IMPORTED_MODULE_0__);
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((_ext__WEBPACK_IMPORTED_MODULE_0___default().storage.sync) ? (_ext__WEBPACK_IMPORTED_MODULE_0___default().storage.sync) : (_ext__WEBPACK_IMPORTED_MODULE_0___default().storage.local));
 
 /***/ }),
 
