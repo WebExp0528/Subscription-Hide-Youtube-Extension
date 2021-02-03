@@ -165,9 +165,9 @@ class Background {
     /**
      * send message
      */
-    sendMessage = (tab, type, msg) => {
+    sendMessage = (tab, type, data) => {
         return new Promise((resolve, reject) =>
-            ext.tabs.sendMessage(tab.id, { type, msg }, function (response) {
+            ext.tabs.sendMessage(tab.id, { type, data }, function (response) {
                 resolve(response);
             })
         );
