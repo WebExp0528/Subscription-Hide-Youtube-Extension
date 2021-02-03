@@ -3,6 +3,7 @@ import { Switch, Grid, Container } from "@material-ui/core";
 import { spacing } from "@material-ui/system";
 import { styled } from "@material-ui/core/styles";
 import ext from "utils/ext";
+import { MSG_TYPE } from "utils/sendMessages";
 
 import storage from "utils/storage";
 
@@ -36,6 +37,23 @@ export const Popup = () => {
                 setStatus(newStatus);
                 setLoading(false);
             });
+
+            ext.tabs.query(
+                {
+                    active: true,
+                    currentWindow: true,
+                },
+                (tabs) => {
+                    let tabId = tabs[0].id;
+                    ext.tabs.sendMessage(
+                        tabId,
+                        { type: MSG_TYPE.FORCE_RELOAD, data: undefined },
+                        (response) => {
+                            console.log("~~~~ reloaded");
+                        }
+                    );
+                }
+            );
         }
     };
 

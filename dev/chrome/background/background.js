@@ -320,7 +320,8 @@ __webpack_require__.r(__webpack_exports__);
 var MSG_TYPE = {
   RELOADED_PAGE: 10000000,
   GET_STATUS: 10000001,
-  SET_STATUS: 10000001
+  SET_STATUS: 10000003,
+  FORCE_RELOAD: 1000002
 };
 /**
  * Send Message to background script

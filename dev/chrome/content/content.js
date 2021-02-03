@@ -138,6 +138,11 @@ var onRequest = function onRequest(request, sender, reply) {
     reply();
   }
 
+  if (request.type === utils_sendMessages__WEBPACK_IMPORTED_MODULE_0__.MSG_TYPE.FORCE_RELOAD) {
+    window.location.reload();
+    reply();
+  }
+
   return true;
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (onRequest);
@@ -237,7 +242,8 @@ __webpack_require__.r(__webpack_exports__);
 var MSG_TYPE = {
   RELOADED_PAGE: 10000000,
   GET_STATUS: 10000001,
-  SET_STATUS: 10000001
+  SET_STATUS: 10000003,
+  FORCE_RELOAD: 1000002
 };
 /**
  * Send Message to background script

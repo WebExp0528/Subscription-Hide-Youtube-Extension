@@ -6,6 +6,10 @@ export const onRequest = (request, sender, reply) => {
         hideSubscriptions();
         reply();
     }
+    if (request.type === MSG_TYPE.FORCE_RELOAD) {
+        window.location.reload();
+        reply();
+    }
     return true;
 };
 

@@ -6,7 +6,8 @@ import ext from "./ext";
 export const MSG_TYPE = {
     RELOADED_PAGE: 10000000,
     GET_STATUS: 10000001,
-    SET_STATUS: 10000001,
+    SET_STATUS: 10000003,
+    FORCE_RELOAD: 1000002,
 };
 
 /**
