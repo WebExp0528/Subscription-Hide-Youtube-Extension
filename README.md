@@ -1,1 +1,1 @@
-# Subscription-Hide-Youtube-Extension
+# SimpleTube Extension
