@@ -4,8 +4,7 @@ import ext from "./ext";
  * MSG Types
  */
 export const MSG_TYPE = {
-    GET_INFO_BY_EMAIL: 10000001,
-    SAVE_SIGNATURE: 10000002,
+    RELOADED_PAGE: 10000000,
 };
 
 /**

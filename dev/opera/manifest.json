@@ -12,8 +12,9 @@
     "default_locale": "en",
     "content_scripts": [
         {
-            "matches": ["http://*.youtube.com/*", "https://*.youtube.com/*"],
-            "js": ["content/content.js"]
+            "matches": ["https://www.youtube.com/*"],
+            "js": ["content/content.js"],
+            "run_at": "document_end"
         }
     ],
     "background": {
@@ -23,8 +24,8 @@
     "permissions": [
         "tabs",
         "storage",
-        "http://*.youtube.com/*",
-        "https://*.youtube.com/*"
+        "activeTab",
+        "https://www.youtube.com/*"
     ],
     "options_ui": {
         "page": "options/index.html"

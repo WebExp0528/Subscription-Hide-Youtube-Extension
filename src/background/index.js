@@ -1,4 +1,5 @@
 import ext from "utils/ext";
+import { MSG_TYPE } from "utils/sendMessages";
 
 /**
  * Define content script functions
@@ -27,7 +28,7 @@ class Background {
         //Add message listener from Extension
         ext.extension.onConnect.addListener((port) => this.onConnect(port));
 
-        //Add Update listener for tab
+        // Add Update listener for tab
         ext.tabs.onUpdated.addListener((tabId, changeInfo, tab) =>
             this.onUpdatedTab(tabId, changeInfo, tab)
         );
@@ -97,7 +98,9 @@ class Background {
      * @param {*} tab
      */
     onUpdatedTab = (tabId, changeInfo, tab) => {
-        console.log("~~~~~Changed tab", tabId);
+        if (changeInfo.status === "complete") {
+            this.sendMessage(tab, MSG_TYPE.RELOADED_PAGE);
+        }
     };
 
     /**
@@ -162,9 +165,9 @@ class Background {
     /**
      * send message
      */
-    sendMessage = (tab, msg) => {
+    sendMessage = (tab, type, msg) => {
         return new Promise((resolve, reject) =>
-            ext.tabs.sendMessage(tab.id, msg, function (response) {
+            ext.tabs.sendMessage(tab.id, { type, msg }, function (response) {
                 resolve(response);
             })
         );

@@ -4,7 +4,10 @@
             "@babel/preset-env",
             {
                 "corejs": "3",
-                "useBuiltIns": "entry"
+                "useBuiltIns": "entry",
+                "targets": {
+                    "esmodules": true
+                }
             }
         ],
         "@babel/preset-react"
@@ -15,6 +18,7 @@
             {
                 "loose": true
             }
-        ]
+        ],
+        "@babel/plugin-transform-runtime"
     ]
 }
