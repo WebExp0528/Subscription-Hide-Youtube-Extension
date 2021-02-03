@@ -4,11 +4,13 @@ import React from "react";
 import ReactDOM from "react-dom";
 import ext from "utils/ext";
 import MessageListener from "./messageListener";
-import $ from "jquery";
 
 import "./content.css";
+var jquery = require("jquery");
 
-$(document).ready(setupContent);
+jquery(function () {
+    setupContent();
+});
 
 class Main extends React.Component {
     render() {
@@ -20,11 +22,12 @@ const setupContent = () => {
     //Setup message listener
     ext.runtime.onMessage.addListener(MessageListener);
 
-    console.log("~~~~ extension ready");
-
     //Add extension root
     const app = document.createElement("div");
     app.id = "my-extension-root";
     document.body.appendChild(app);
     ReactDOM.render(<Main />, app);
+
+    jquery("#secondary").attr("style", "display: none");
+    jquery(".ytd-rich-grid-renderer").attr("style", "display: none");
 };

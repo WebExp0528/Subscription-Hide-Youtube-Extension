@@ -14,10 +14,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var utils_ext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! utils/ext */ "./src/utils/ext.js");
 /* harmony import */ var utils_ext__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(utils_ext__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _messageListener__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./messageListener */ "./src/content/messageListener.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _content_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./content.css */ "./src/content/content.css");
-/* harmony import */ var _content_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_content_css__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _content_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./content.css */ "./src/content/content.css");
+/* harmony import */ var _content_css__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_content_css__WEBPACK_IMPORTED_MODULE_4__);
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -47,7 +45,11 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
-jquery__WEBPACK_IMPORTED_MODULE_4___default()(document).ready(setupContent);
+var jquery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+
+jquery(function () {
+  setupContent();
+});
 
 var Main = /*#__PURE__*/function (_React$Component) {
   _inherits(Main, _React$Component);
@@ -74,13 +76,14 @@ var Main = /*#__PURE__*/function (_React$Component) {
 
 var setupContent = function setupContent() {
   //Setup message listener
-  utils_ext__WEBPACK_IMPORTED_MODULE_2___default().runtime.onMessage.addListener(_messageListener__WEBPACK_IMPORTED_MODULE_3__.default);
-  console.log("~~~~ extension ready"); //Add extension root
+  utils_ext__WEBPACK_IMPORTED_MODULE_2___default().runtime.onMessage.addListener(_messageListener__WEBPACK_IMPORTED_MODULE_3__.default); //Add extension root
 
   var app = document.createElement("div");
   app.id = "my-extension-root";
   document.body.appendChild(app);
   react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(Main, null), app);
+  jquery("#secondary").attr("style", "display: none");
+  jquery(".ytd-rich-grid-renderer").attr("style", "display: none");
 };
 
 /***/ }),
