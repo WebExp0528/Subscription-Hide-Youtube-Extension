@@ -104,56 +104,9 @@ var Background = function Background() {
   _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0___default()(this, Background);
 
   this.init = function () {
-    console.log("loaded Background Scripts"); //When extension installed
+    console.log("loaded Background Scripts"); // Add Update listener for tab
 
-    utils_ext__WEBPACK_IMPORTED_MODULE_1___default().runtime.onInstalled.addListener(function () {
-      return _this.onInstalled();
-    }); //Add message listener in Browser.
-
-    utils_ext__WEBPACK_IMPORTED_MODULE_1___default().runtime.onMessage.addListener(function (message, sender, reply) {
-      return _this.onMessage(message, sender, reply);
-    }); //Add message listener from Extension
-
-    utils_ext__WEBPACK_IMPORTED_MODULE_1___default().extension.onConnect.addListener(function (port) {
-      return _this.onConnect(port);
-    }); // Add Update listener for tab
-
-    utils_ext__WEBPACK_IMPORTED_MODULE_1___default().tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
-      return _this.onUpdatedTab(tabId, changeInfo, tab);
-    }); //Add New tab create listener
-
-    utils_ext__WEBPACK_IMPORTED_MODULE_1___default().tabs.onCreated.addListener(function (tab) {
-      return _this.onCreatedTab(tab);
-    });
-  };
-
-  this.onInstalled = function () {
-    console.log("~~~~~Installed Extension!");
-  };
-
-  this.onMessage = function (message, sender, reply) {
-    console.log("~~~~~Received message", message);
-
-    switch (message.type) {}
-
-    return true;
-  };
-
-  this.onConnect = function (port) {
-    _this._port = port;
-    console.log("~~~~~Connected .....");
-
-    _this._port.onMessage.addListener(function (msg) {
-      return _this.onMessageFromExtension(msg);
-    });
-  };
-
-  this.onMessageFromExtension = function (msg) {
-    console.log("~~~~Recieved message from Popup:" + msg);
-  };
-
-  this.onCreatedTab = function (tab) {
-    console.log("~~~~~Created new tab", tab);
+    utils_ext__WEBPACK_IMPORTED_MODULE_1___default().tabs.onUpdated.addListener(_this.onUpdatedTab);
   };
 
   this.onUpdatedTab = function (tabId, changeInfo, tab) {
@@ -162,54 +115,14 @@ var Background = function Background() {
     }
   };
 
-  this.getURLFromTab = function (tabid) {
-    return new Promise(function (resolve, reject) {
-      utils_ext__WEBPACK_IMPORTED_MODULE_1___default().tabs.get(tabid, function (tab) {
-        resolve(tab.url ? tab.url : "");
-      });
-    });
-  };
-
-  this.openNewTab = function (url) {
-    return new Promise(function (resolve, reject) {
-      return utils_ext__WEBPACK_IMPORTED_MODULE_1___default().tabs.create({
-        url: url
-      }, function (tab) {
-        resolve(tab);
-      });
-    });
-  };
-
-  this.closeTab = function (tab) {
-    return new Promise(function (resolve, reject) {
-      return utils_ext__WEBPACK_IMPORTED_MODULE_1___default().tabs.remove(tab.id, function () {
-        resolve();
-      });
-    });
-  };
-
-  this.updateTab = function (tab, options) {
-    return new Promise(function (resolve, reject) {
-      utils_ext__WEBPACK_IMPORTED_MODULE_1___default().tabs.update(tab.id, options, function (updateTab) {
-        resolve(updateTab);
-      });
-    });
-  };
-
-  this.getTab = function (tab) {
-    return new Promise(function (resolve) {
-      utils_ext__WEBPACK_IMPORTED_MODULE_1___default().tabs.get(tab.id, function (newTab) {
-        resolve(newTab);
-      });
-    });
-  };
-
   this.sendMessage = function (tab, type, data) {
     return new Promise(function (resolve, reject) {
       return utils_ext__WEBPACK_IMPORTED_MODULE_1___default().tabs.sendMessage(tab.id, {
         type: type,
         data: data
       }, function (response) {
+        if ((utils_ext__WEBPACK_IMPORTED_MODULE_1___default().runtime.lastError)) {}
+
         resolve(response);
       });
     });

@@ -49,7 +49,8 @@ export const Popup = () => {
                         tabId,
                         { type: MSG_TYPE.FORCE_RELOAD, data: undefined },
                         (response) => {
-                            console.log("~~~~ reloaded");
+                            if (ext.runtime.lastError) {
+                            }
                         }
                     );
                 }

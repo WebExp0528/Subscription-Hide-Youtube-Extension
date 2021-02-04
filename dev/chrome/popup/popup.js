@@ -7147,7 +7147,7 @@ var Popup = function Popup() {
           type: utils_sendMessages__WEBPACK_IMPORTED_MODULE_4__.MSG_TYPE.FORCE_RELOAD,
           data: undefined
         }, function (response) {
-          console.log("~~~~ reloaded");
+          if ((utils_ext__WEBPACK_IMPORTED_MODULE_3___default().runtime.lastError)) {}
         });
       });
     }
