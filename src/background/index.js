@@ -30,7 +30,8 @@ class Background {
      * @param {*} tab
      */
     onUpdatedTab = (tabId, changeInfo, tab) => {
-        if (changeInfo.status === "complete") {
+        const { url = "", status = "" } = changeInfo || {};
+        if (url.indexOf("https://www.youtube.com") && status === "complete") {
             this.sendMessage(tab, MSG_TYPE.RELOADED_PAGE);
         }
     };

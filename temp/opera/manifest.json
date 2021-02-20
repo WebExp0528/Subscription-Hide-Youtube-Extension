@@ -21,12 +21,7 @@
         "scripts": ["background/background.js", "hotreload/hotreload.js"],
         "persistent": true
     },
-    "permissions": [
-        "tabs",
-        "storage",
-        "activeTab",
-        "https://www.youtube.com/*"
-    ],
+    "permissions": ["tabs", "storage"],
     "options_ui": {
         "page": "options/index.html"
     },
